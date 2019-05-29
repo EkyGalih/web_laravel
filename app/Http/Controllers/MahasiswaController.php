@@ -11,6 +11,7 @@ class MahasiswaController extends Controller
 		
 		// file mahasiswa terdapat pada folder resource
 		$var = 'Pahrul Irfan';
+				// SELECT * FROM tbl_mahasiswa
 		$data = Mahasiswa::all();
 //		dd($data);
 		return view('Mahasiswa.index', compact('var', 'data'));
@@ -21,6 +22,7 @@ class MahasiswaController extends Controller
 	}
 
 	public function store(Request $mahasiswa){
+		// INSERT INTO tbl_mahasiswa () VALUES ();
 		Mahasiswa::create($mahasiswa->all());
 		return redirect('mahasiswa');
 	}
@@ -33,7 +35,14 @@ class MahasiswaController extends Controller
 
 	public function update(Request $mahasiswa, $id){
 		$mhs = $mahasiswa->all();
+		// UPDATE tbl_mahasiwa SET nama_kolom=$mhs
 		Mahasiswa::find($id)->update($mhs);
+		return redirect('mahasiswa');
+	}
+
+	public function destroy($id){
+		// Delete from tbl_mahasiswa where id=$id
+		Mahasiswa::find($id)->delete();
 		return redirect('mahasiswa');
 	}
 }

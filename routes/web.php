@@ -2,9 +2,9 @@
 
 use App\Mahasiswa;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 
 // Route::get('/contoh', function(){
